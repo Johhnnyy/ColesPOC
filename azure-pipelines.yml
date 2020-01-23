@@ -21,3 +21,19 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'clean test -Dbuild=${BUILD_NUMBER}'
+
+jobs:
+- job: always
+  steps:
+  - script: echo "The build has finished. Please see reports here:- https://uscloud.experitest.com/reporter/#/test-view-view/1055"
+    condition: always()
+
+- job: success
+  steps:
+  - script: echo "The build has finished. Please see reports here:- https://uscloud.experitest.com/reporter/#/test-view-view/1055"
+    condition: succeeded()
+
+- job: failed
+  steps:
+  - script: echo "The build has finished. Please see reports here:- https://uscloud.experitest.com/reporter/#/test-view-view/1055"
+    condition: failed()
