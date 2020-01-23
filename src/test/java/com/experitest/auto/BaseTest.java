@@ -22,7 +22,7 @@ public class BaseTest {
 		dc.setCapability("password", getProperty("password", cloudProperties));
 		// In case your user is assign to a single project leave empty,
 		// otherwise please specify the project name
-		String val = System.getenv("BUILD_NUMBER");
+		String val = System.getenv("Build.BuildNumber");
 		dc.setCapability("build", val);
 		dc.setCapability("project", getProperty("project", cloudProperties));
 		dc.setCapability("testType", "EribankDhiraj");
